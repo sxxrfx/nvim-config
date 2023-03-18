@@ -1,0 +1,31 @@
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+vim.keymap.set({ 'n', 'v' }, '<Space>p', '<Nop>', { silent = true })
+
+-- Remap for dealing with word wrap
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set('n', '<leader>o', vim.cmd.Ex)
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+vim.keymap.set('n', 'J', 'mzJ`z')
+-- vim.keymap.set('n', '<leader>tf', '<cmd>Format<CR>')
+vim.keymap.set('n', '<leader>q', '<cmd>wqa<CR>')
+vim.keymap.set('n', '<leader>w', '<cmd>wa<CR>')
+
+-- vim.keymap.set('n', '<C-d>', '<C-d>zz')
+-- vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', 'n', 'nzzzv')
+-- vim.keymap.set("v", "y", "vgv<Esc>")
+-- vim.keymap.set("v", "<leader>ss", "<Esc>:s%/<C-r>+//gc<left><left><left>")
+-- vim.keymap.set("v", "<leader>ss", "hy:%s/<C-r>h//gc<left><left><left>")
+-- vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+vim.keymap.set('n', 'N', 'Nzzzv')
+local builtin = require 'telescope.builtin'
+vim.keymap.set('n', '<leader>pp', builtin.find_files, {})
+vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+vim.keymap.set('n', '<leader>ps', function()
+  builtin.grep_string { search = vim.fn.input 'Grep > ' }
+end)
+-- vim.keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader>tt', builtin.colorscheme, { desc = '[ ] Change Colorscheme' })
+vim.keymap.set('n', '<leader>bb', builtin.buffers, { desc = '[ ] Find existing buffers' })
