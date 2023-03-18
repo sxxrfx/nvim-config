@@ -139,13 +139,6 @@ require('lazy').setup({
     --   vim.cmd.colorscheme 'onedark'
     -- end,
   },
-  {
-    'folke/tokyonight.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'tokyonight-storm'
-    end,
-  },
   { 'ellisonleao/gruvbox.nvim' },
   { 'EdenEast/nightfox.nvim' },
 
@@ -352,5 +345,5 @@ require('lazy').setup({
   --
   --    An additional note is that if you only copied in the `init.lua`, you can just comment this line
   --    to get rid of the warning telling you that there are not plugins in `lua/custom/plugins/`.
-  { import = 'custom.plugins' },
+  { import = 'plugins' },
 }, {})
